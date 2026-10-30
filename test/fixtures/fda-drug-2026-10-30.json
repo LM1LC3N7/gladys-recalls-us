@@ -1,0 +1,665 @@
+{
+ "meta": {
+  "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+  "terms": "https://open.fda.gov/terms/",
+  "license": "https://open.fda.gov/license/",
+  "last_updated": "2026-10-21",
+  "results": {
+   "skip": 0,
+   "limit": 1000,
+   "total": 12
+  }
+ },
+ "results": [
+  {
+   "status": "Ongoing",
+   "city": "Houston",
+   "state": "TX",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {},
+   "product_type": "Drugs",
+   "event_id": "99990",
+   "recalling_firm": "Houston Rx LLC",
+   "address_1": "15340 Vantage Pkwy E Ste 220",
+   "address_2": "",
+   "postal_code": "77032-1901",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+   "distribution_pattern": "Nationwide in the USA.",
+   "recall_number": "D-0041-2027",
+   "product_description": "Sermorelin, 1 mg/mL, 10 ml vial, Sterile injectable solution, RX Only, Houston RX LLC, 15430 Vantage Parkway E STE 220, Houston, TX 77032.",
+   "product_quantity": "7 vials",
+   "reason_for_recall": "Lack of process control",
+   "recall_initiation_date": "20260925",
+   "center_classification_date": "20261013",
+   "report_date": "20261021",
+   "code_info": "Lot# SER-081726-1-10, Beyond Use Date: 10/01/2026.",
+   "more_code_info": ""
+  },
+  {
+   "status": "Ongoing",
+   "city": "Parsippany",
+   "state": "NJ",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {
+    "application_number": [
+     "ANDA070184"
+    ],
+    "brand_name": [
+     "METOCLOPRAMIDE"
+    ],
+    "generic_name": [
+     "METOCLOPRAMIDE"
+    ],
+    "manufacturer_name": [
+     "Teva Pharmaceuticals USA, Inc."
+    ],
+    "product_ndc": [
+     "0093-2203",
+     "0093-2204"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "substance_name": [
+     "METOCLOPRAMIDE HYDROCHLORIDE"
+    ],
+    "rxcui": [
+     "311666",
+     "311668"
+    ],
+    "spl_id": [
+     "61b5d2d5-1e7b-44ff-a831-1a0de78edecd"
+    ],
+    "spl_set_id": [
+     "e15905e0-e0f6-4c8b-ac19-59724d6c4bf0"
+    ],
+    "package_ndc": [
+     "0093-2204-01",
+     "0093-2204-05",
+     "0093-2203-01",
+     "0093-2203-05",
+     "0093-2203-10"
+    ],
+    "is_original_packager": [
+     true
+    ],
+    "upc": [
+     "0300932203013",
+     "0300932204010"
+    ],
+    "unii": [
+     "W1792A2RVD"
+    ]
+   },
+   "product_type": "Drugs",
+   "event_id": "100013",
+   "recalling_firm": "Teva Pharmaceuticals USA, Inc",
+   "address_1": "400 Interpace Pkwy Bldg A",
+   "address_2": "",
+   "postal_code": "07054-1120",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "Letter",
+   "distribution_pattern": "US Nationwide.",
+   "recall_number": "D-0038-2027",
+   "product_description": "Metoclopramide Tablets, USP, 5 mg, [100 or 500] Tablets per bottle, Rx Only, Manufactured for: Teva Pharmaceuticals, Parsippany, NJ 07054.  NDC 100 Tablets: 0093-2204-01; NDC 500 Tablets: 0093-2204-05",
+   "product_quantity": "240,448 cartons",
+   "reason_for_recall": "Presence of Foreign Tablets/Capsules",
+   "recall_initiation_date": "20260929",
+   "center_classification_date": "20261013",
+   "report_date": "20261021",
+   "code_info": "Lot, expiry: [100 Tablets] Lots 8634085, 8635085, 8636085, exp 07/2027; [500 Tablets] Lot 8633085, exp 07/2027",
+   "more_code_info": ""
+  },
+  {
+   "status": "Ongoing",
+   "city": "Columbus",
+   "state": "OH",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {
+    "application_number": [
+     "ANDA072801"
+    ],
+    "brand_name": [
+     "METOCLOPRAMIDE"
+    ],
+    "generic_name": [
+     "METOCLOPRAMIDE"
+    ],
+    "manufacturer_name": [
+     "American Health Packaging"
+    ],
+    "product_ndc": [
+     "60687-620",
+     "60687-631"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "substance_name": [
+     "METOCLOPRAMIDE HYDROCHLORIDE"
+    ],
+    "rxcui": [
+     "311666",
+     "311668"
+    ],
+    "spl_id": [
+     "223f574d-b64f-236d-e063-6294a90aada1"
+    ],
+    "spl_set_id": [
+     "998f1782-bbfa-469b-9fe1-c612e8588f70"
+    ],
+    "package_ndc": [
+     "60687-620-11",
+     "60687-620-01",
+     "60687-631-11",
+     "60687-631-01"
+    ],
+    "original_packager_product_ndc": [
+     "0093-2204",
+     "0093-2203"
+    ],
+    "unii": [
+     "W1792A2RVD"
+    ]
+   },
+   "product_type": "Drugs",
+   "event_id": "100100",
+   "recalling_firm": "American Health Packaging",
+   "address_1": "2550 John Glenn Ave Ste A",
+   "address_2": "",
+   "postal_code": "43217-1188",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "Letter",
+   "distribution_pattern": "US Nationwide",
+   "recall_number": "D-0042-2027",
+   "product_description": "Metoclopramide Tablets, USP, 5 mg, 100 Tablets (10 x 10), Rx Only, Distributed by: American Health Packaging, Columbus, Ohio 43217.  NDC Carton: 60687-620-01; NDC Unit Dose: 60687-620-11",
+   "product_quantity": "5,363 cartons",
+   "reason_for_recall": "Presence of Foreign Tablets/Capsules",
+   "recall_initiation_date": "20261006",
+   "center_classification_date": "20261014",
+   "report_date": "20261021",
+   "code_info": "Lot 1028135, 1029555; Exp. Date 07/31/2027",
+   "more_code_info": ""
+  },
+  {
+   "status": "Ongoing",
+   "city": "Pennington",
+   "state": "NJ",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {
+    "application_number": [
+     "ANDA217191"
+    ],
+    "brand_name": [
+     "HYDROCORTISONE SODIUM SUCCINATE"
+    ],
+    "generic_name": [
+     "HYDROCORTISONE SODIUM SUCCINATE"
+    ],
+    "manufacturer_name": [
+     "Zydus Pharmaceuticals USA Inc."
+    ],
+    "product_ndc": [
+     "70710-1907"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "INTRAMUSCULAR",
+     "INTRAVENOUS"
+    ],
+    "substance_name": [
+     "HYDROCORTISONE SODIUM SUCCINATE"
+    ],
+    "rxcui": [
+     "238755"
+    ],
+    "spl_id": [
+     "9e47e808-7310-4c61-ac62-595a5c357123"
+    ],
+    "spl_set_id": [
+     "37534164-9de5-4bb3-9f87-341dfcf90883"
+    ],
+    "package_ndc": [
+     "70710-1907-1"
+    ],
+    "is_original_packager": [
+     true
+    ],
+    "unii": [
+     "50LQB69S1Z"
+    ]
+   },
+   "product_type": "Drugs",
+   "event_id": "100017",
+   "recalling_firm": "Zydus Pharmaceuticals (USA) Inc",
+   "address_1": "73 Route 31 N",
+   "address_2": "",
+   "postal_code": "08534-3601",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "Letter",
+   "distribution_pattern": "Nationwide within the United States",
+   "recall_number": "D-0039-2027",
+   "product_description": "Hydrocortisone Sodium Succinate for Injection, USP 100 mg/vial, 1 Vial, Rx Only, Manufactured by: Zydus Lifesciences Ltd., Vadodara - 391510 India, Distributed by: Zydus Pharmaceuticals (USA) Inc., Pennington, NJ 08534, NDC 70710-1907-1.",
+   "product_quantity": "70776 vials",
+   "reason_for_recall": "Failed Impurities/Degradation Specifications.",
+   "recall_initiation_date": "20261001",
+   "center_classification_date": "20261013",
+   "report_date": "20261021",
+   "code_info": "Lot #: LB00047A, LB00048A, Exp. Date 03/2028",
+   "more_code_info": ""
+  },
+  {
+   "status": "Ongoing",
+   "city": "Houston",
+   "state": "TX",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {},
+   "product_type": "Drugs",
+   "event_id": "99990",
+   "recalling_firm": "Houston Rx LLC",
+   "address_1": "15340 Vantage Pkwy E Ste 220",
+   "address_2": "",
+   "postal_code": "77032-1901",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+   "distribution_pattern": "Nationwide in the USA.",
+   "recall_number": "D-0040-2027",
+   "product_description": "Tirzepatide/Niacinamide 2mL vial (40 MG per Vial) Inj 20mg/2mg/mL, RX Only, Houston RX LLC, 15430 Vantage Parkway E STE 220, Houston, TX 77032.",
+   "product_quantity": "64 vials",
+   "reason_for_recall": "Lack of assurance of sterility.",
+   "recall_initiation_date": "20260925",
+   "center_classification_date": "20261013",
+   "report_date": "20261021",
+   "code_info": "Lot# TZN-080326-20/2-2, Beyond Use Date: 12/01/2026.",
+   "more_code_info": ""
+  },
+  {
+   "status": "Ongoing",
+   "city": "Pomona",
+   "state": "CA",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {
+    "application_number": [
+     "M018"
+    ],
+    "brand_name": [
+     "LEADER DRY EYE RELIEF EYE DROPS",
+     "ARTIFICIAL TEARS",
+     "FOSTER AND THRIVE DRY EYE RELIEF"
+    ],
+    "generic_name": [
+     "GLYCERIN, HYPROMELLOSE, POLYETHYLENE GLYCOL 400",
+     "GLYCERIN",
+     "POLYETHYLENE GLYCOL 400"
+    ],
+    "manufacturer_name": [
+     "CARDINAL HEALTH 110, LLC. DBA LEADER",
+     "Geri-Care Pharmaceuticals, Corp",
+     "Strategic Sourcing Services LLC"
+    ],
+    "product_ndc": [
+     "70000-0502",
+     "57896-181",
+     "70677-1157"
+    ],
+    "product_type": [
+     "HUMAN OTC DRUG"
+    ],
+    "route": [
+     "OPHTHALMIC"
+    ],
+    "substance_name": [
+     "GLYCERIN",
+     "HYPROMELLOSE, UNSPECIFIED",
+     "POLYETHYLENE GLYCOL 400",
+     "HYPROMELLOSES"
+    ],
+    "rxcui": [
+     "259581",
+     "2360899"
+    ],
+    "spl_id": [
+     "5944f7bf-c84b-497f-e063-6394a90aed1f",
+     "472b069b-4e80-8cb8-e063-6294a90a302b",
+     "4749275b-6982-4eaf-e063-6394a90aaee9"
+    ],
+    "spl_set_id": [
+     "2ded4bda-b3c3-4521-8701-5c8446fd148b",
+     "7cc437e3-bad9-59be-e053-2991aa0a1da3",
+     "0018ade9-5856-db6c-e063-6394a90a2ccf"
+    ],
+    "package_ndc": [
+     "70000-0502-1",
+     "70000-0502-2",
+     "57896-181-05",
+     "70677-1157-1"
+    ],
+    "is_original_packager": [
+     true
+    ],
+    "upc": [
+     "0096295137064",
+     "0096295137071",
+     "0357896184056",
+     "0010939958266",
+     "867166000004",
+     "093351011566",
+     "614299056206",
+     "041220437412",
+     "072036713032",
+     "036800361003"
+    ],
+    "nui": [
+     "N0000185370",
+     "N0000175629",
+     "N0000184306",
+     "N0000185001",
+     "M0000728",
+     "M0009417"
+    ],
+    "pharm_class_epc": [
+     "Non-Standardized Chemical Allergen [EPC]"
+    ],
+    "pharm_class_pe": [
+     "Increased Histamine Release [PE]",
+     "Cell-mediated Immunity [PE]",
+     "Increased IgG Production [PE]"
+    ],
+    "pharm_class_cs": [
+     "Allergens [CS]",
+     "Glycerol [CS]"
+    ],
+    "unii": [
+     "PDC6A3C0OX",
+     "3NXW29V3WO",
+     "B697894SGQ"
+    ]
+   },
+   "product_type": "Drugs",
+   "event_id": "99880",
+   "recalling_firm": "K.C. Pharmaceuticals, Inc.",
+   "address_1": "3420 Pomona Blvd",
+   "address_2": "N/A",
+   "postal_code": "91768-3236",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "E-Mail",
+   "distribution_pattern": "US Nationwide",
+   "recall_number": "D-0006-2027",
+   "product_description": "Sterile Lubricant Dry Eye Relief Eye Drops, 0.5 FL OZ (15 mL); a) LEADER, DISTRIBUTED BY CARDINAL HEALTH, DUBLIN, OHIO 43017, www.myleader.com, NDC 70000-0502-1; b) Crocodile Tears, Distributed by: Crocodile Tears, Palm Beach Gardens, FL 33410, UPC: 8 67166 00000 4; c) Discount drug mart, Discount Drug Mart Food Fair, Medina, OH 44256, UPC: 0 93351 01156 6; d) exchange select, Manufactured for your Military Exchange By: K.C Pharmaceuticals, Inc., Pomona, CA 9176, UPC: 6 14299 05620 6; e) GERI CARE, Distributed by: Gericare Pharmaceuticals Corp., 1295 Towbin Ave., Lakewood, NJ 08701, NDC 57896-181-05; f) H.E.B Dry Eye,  Eye Drops, MADE WITH PRIDE & CARE FOR H-E-B, SAN ANTONIO, TX 78204, UPC 0 41220 43741 2; g) Harris Teeter, PROUDLY DISTRIBUTED BY: HARRIS TEETER, LLC, MATTHEWS, NC 28105, UPC: 0 72036 71303 2; h) Foster & Thrive, Distributed by: McKesson Corp. Via Strategic Sourcing Servies LLC., Memphis, TN 38141, NDC 70677-1157-1; I) TopCare health, DISTRIBUTED BY TOPCO ASSOCIATES LLC, ELKGROVE VILLAGE, IL 60007, UPC 0 36800 36100 3.",
+   "product_quantity": "1,327,248 cartons",
+   "reason_for_recall": "Lack of Assurance of Sterility",
+   "recall_initiation_date": "20260911",
+   "center_classification_date": "20261005",
+   "report_date": "20261014",
+   "code_info": "Lot: a) LT25B01, Exp.: 02/28/2027; b) LT25D02, Exp.: 04/30/2027; LT25K01, Exp.: 09/30/2027; c) LT25D02, Exp.: 04/30/2027; LT25K01, Exp.: 09/30/2027; d) LT25D02, Exp.: 04/30/2027; LT25M02, Exp.: 10/31/2027; e) LT25B01, Exp.: 02/28/2027; LT25D01, Exp.: 04/30/2027; LT25D02, Exp.: 04/30/2027; LT25K01, Exp.: 09/30/2027; LT25M01, Exp.: 10/31/2027; LT25M02, Exp.: 10/31/2027; LT25N01, Exp.: 11/30/2027; LT25N02, Exp.: 11/30/2027; f) LT25B01, Exp.: 02/28/2027; g) LT25M02, Exp.: 10/31/2027; h) LT25B01, Exp.: 02/28/2027; I) LT25B01, Exp.: 02/28/2027; LT25D02, Exp.: 04/30/2027; LT25M02, Exp.: 10/31/2027."
+  },
+  {
+   "status": "Ongoing",
+   "city": "Ridgeland",
+   "state": "SC",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {},
+   "product_type": "Drugs",
+   "event_id": "99867",
+   "recalling_firm": "Carolina Infusion, LLC",
+   "address_1": "95 Bees Creek Rd",
+   "address_2": "N/A",
+   "postal_code": "29936-7540",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "E-Mail",
+   "distribution_pattern": "Nationwide within the U.S",
+   "recall_number": "D-0021-2027",
+   "product_description": "QUAD-MIX( PAPAV/PHENTO/ALPROS/TROP) INJECTABLE, Packaged in single-use dosage syringes, total mL dispensed based on dosage per specific patient prescription, Carolina Infusion LLC, 95 Bees Creek Road, Ridgeland, SC 29936",
+   "product_quantity": "5 mls in patient specific syringe doses",
+   "reason_for_recall": "Lack of Assurance of Sterility:   Related to processing equipment used in compounded product.",
+   "recall_initiation_date": "20260910",
+   "center_classification_date": "20261008",
+   "report_date": "20261014",
+   "code_info": "LOT: 08032026@24, BUD: 09/17/2026."
+  },
+  {
+   "status": "Ongoing",
+   "city": "Ridgeland",
+   "state": "SC",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {},
+   "product_type": "Drugs",
+   "event_id": "99867",
+   "recalling_firm": "Carolina Infusion, LLC",
+   "address_1": "95 Bees Creek Rd",
+   "address_2": "N/A",
+   "postal_code": "29936-7540",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "E-Mail",
+   "distribution_pattern": "Nationwide within the U.S",
+   "recall_number": "D-0027-2027",
+   "product_description": "TIRZEPATIDE/CYANOCOBALAMIN 26/2 MG/ML INJECTABLE, Packaged in single-use dosage syringes, total mL dispensed based on dosage per specific patient prescription, Carolina Infusion LLC, 95 Bees Creek Road, Ridgeland, SC 29936",
+   "product_quantity": "297 mL - in patient specific syringe dose",
+   "reason_for_recall": "Lack of Assurance of Sterility: Related to formulation using bacteriostic water; Related to processing equipment used in compounded product.",
+   "recall_initiation_date": "20260910",
+   "center_classification_date": "20261008",
+   "report_date": "20261014",
+   "code_info": "Lot:07212026@18, BUD: 9/4/2026; 07222026@14, BUD: 9/5/2026; 07292026@8, BUD: 9/12/2026; 08052026@14, BUD: 9/19/2026; 08142026@1, BUD: 9/28/2026; 08192026@10, BUD: 10/3/2026; 08242026@25, BUD: 10/8/2026; 08282026@2, BUD: 10/12/2026; 08292026@1, BUD:10/13/2026;"
+  },
+  {
+   "status": "Ongoing",
+   "city": "Ridgeland",
+   "state": "SC",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {},
+   "product_type": "Drugs",
+   "event_id": "99867",
+   "recalling_firm": "Carolina Infusion, LLC",
+   "address_1": "95 Bees Creek Rd",
+   "address_2": "N/A",
+   "postal_code": "29936-7540",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "E-Mail",
+   "distribution_pattern": "Nationwide within the U.S",
+   "recall_number": "D-0022-2027",
+   "product_description": "Tri-MIX (PAPAV/PHENTO/ALPROS),30/1/20, injectable,  Packaged in single-use dosage syringes, total mL dispensed based on dosage per specific patient prescription, Carolina Infusion LLC, 95 Bees Creek Road, Ridgeland, SC 29936,",
+   "product_quantity": "15 mLs - in patient specific syringe doses",
+   "reason_for_recall": "Lack of Assurance of Sterility:  Related to processing equipment used in compounded product.",
+   "recall_initiation_date": "20260910",
+   "center_classification_date": "20261008",
+   "report_date": "20261014",
+   "code_info": "Lot: 08072026@2, BUD:9/21/2026; 08032026@10, BUD:09/17/2026."
+  },
+  {
+   "status": "Ongoing",
+   "city": "Ridgeland",
+   "state": "SC",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {},
+   "product_type": "Drugs",
+   "event_id": "99867",
+   "recalling_firm": "Carolina Infusion, LLC",
+   "address_1": "95 Bees Creek Rd",
+   "address_2": "N/A",
+   "postal_code": "29936-7540",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "E-Mail",
+   "distribution_pattern": "Nationwide within the U.S",
+   "recall_number": "D-0023-2027",
+   "product_description": "Tri-MIX (PAPAV/PHENTO/ALPROS),30/1/10, injectable,  Packaged in single-use dosage syringes, total mL dispensed based on dosage per specific patient prescription, Carolina Infusion LLC, 95 Bees Creek Road, Ridgeland, SC 29936,",
+   "product_quantity": "5 mL in patient specific syringe doses",
+   "reason_for_recall": "Lack of Assurance of Sterility: Related to processing equipment used in compounded product.",
+   "recall_initiation_date": "20260910",
+   "center_classification_date": "20261008",
+   "report_date": "20261014",
+   "code_info": "Lot: 07242026@7, BUD: 09/7/2026."
+  },
+  {
+   "status": "Ongoing",
+   "city": "Ridgeland",
+   "state": "SC",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {},
+   "product_type": "Drugs",
+   "event_id": "99867",
+   "recalling_firm": "Carolina Infusion, LLC",
+   "address_1": "95 Bees Creek Rd",
+   "address_2": "N/A",
+   "postal_code": "29936-7540",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "E-Mail",
+   "distribution_pattern": "Nationwide within the U.S",
+   "recall_number": "D-0025-2027",
+   "product_description": "Tri-MIX (PAPAV/PHENTO/ALPROS),30/1/60, injectable, Packaged in single-use dosage syringes, total mL dispensed based on dosage per specific patient prescription, Carolina Infusion LLC, 95 Bees Creek Road, Ridgeland, SC 29936",
+   "product_quantity": "5 mL in patient specific syringe dose",
+   "reason_for_recall": "Lack of Assurance of Sterility: Related to processing equipment used in compounded product.",
+   "recall_initiation_date": "20260910",
+   "center_classification_date": "20261008",
+   "report_date": "20261014",
+   "code_info": "Lot:08062026@10, BUD: 9/20/2026."
+  },
+  {
+   "status": "Ongoing",
+   "city": "Pomona",
+   "state": "CA",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {
+    "application_number": [
+     "M018"
+    ],
+    "brand_name": [
+     "LEADER ADVANCED RELIEF EYE DROPS",
+     "GOODSENSE EYE DROPS ADVANCED RELIEF MOISTURIZER",
+     "MEDICS CHOICE EYE DROPS ADVANCED",
+     "FOSTER AND THRIVE ADVANCED RELIEF EYE DROPS",
+     "QUALITY CHOICE MOISTURIZING RELIEF EYE DROPS"
+    ],
+    "generic_name": [
+     "DEXTRAN 70, POLYETHYLENE GLYCOL 400, POVIDONE, TETRAHYDROZOLINE HCL",
+     "DEXTRAN, POLYETHYLENE GLYCOL 400, POVIDONE, TETRAHYDROZOLINE HCL",
+     "TETRAHYDROZOLINE HYDROCHLORIDE, POLYETHYLENE GLYCOL 400, DEXTRAN 70, POVIDONE",
+     "POLYETHYLENE GLYCOL 400, TETRAHYDROZOLINE HCL"
+    ],
+    "manufacturer_name": [
+     "Cardinal Health",
+     "Geiss, Derstin & Dunn, Inc.",
+     "KC Pharmaceuticals, Inc.",
+     "Strategic Sourcing Services LLC",
+     "Chain Drug Marketing Association, Inc."
+    ],
+    "product_ndc": [
+     "70000-0456",
+     "50804-130",
+     "55651-025",
+     "70677-1158",
+     "83324-191"
+    ],
+    "product_type": [
+     "HUMAN OTC DRUG"
+    ],
+    "route": [
+     "OPHTHALMIC"
+    ],
+    "substance_name": [
+     "DEXTRAN 70",
+     "POLYETHYLENE GLYCOL 400",
+     "POVIDONE",
+     "TETRAHYDROZOLINE HYDROCHLORIDE"
+    ],
+    "rxcui": [
+     "996202",
+     "996209"
+    ],
+    "spl_id": [
+     "4ccce313-8eec-8a62-e063-6394a90aa128",
+     "47450d1c-db32-92cd-e063-6394a90a0703",
+     "4748d5b2-f2f1-e88b-e063-6394a90af39a",
+     "474922b2-773c-4cff-e063-6394a90a6b3a",
+     "4749597d-57d8-92b6-e063-6294a90ab574"
+    ],
+    "spl_set_id": [
+     "5c5d6c13-9b51-48f0-8627-b60b0f707fd3",
+     "9b34de99-13df-201a-e053-2a95a90ae559",
+     "ab906fd8-265c-4359-a920-d626366e245c",
+     "0019cd99-b245-2ffc-e063-6294a90a9f27",
+     "1fb81759-5931-59c8-e063-6294a90a2277"
+    ],
+    "package_ndc": [
+     "70000-0456-1",
+     "50804-130-01",
+     "55651-025-01",
+     "70677-1158-1",
+     "83324-191-14"
+    ],
+    "is_original_packager": [
+     true
+    ],
+    "upc": [
+     "0096295136470",
+     "0180410000194",
+     "0095072012518",
+     "0010939958273",
+     "0635515903760",
+     "041163253926",
+     "041220437450",
+     "184125000180",
+     "041415067769",
+     "036800036413"
+    ],
+    "nui": [
+     "N0000184175",
+     "N0000009361",
+     "N0000010288"
+    ],
+    "pharm_class_epc": [
+     "Plasma Volume Expander [EPC]"
+    ],
+    "pharm_class_pe": [
+     "Increased Intravascular Volume [PE]"
+    ],
+    "pharm_class_moa": [
+     "Osmotic Activity [MoA]"
+    ],
+    "unii": [
+     "7SA290YK68",
+     "B697894SGQ",
+     "FZ989GH94E",
+     "0YZT43HS7D"
+    ]
+   },
+   "product_type": "Drugs",
+   "event_id": "99880",
+   "recalling_firm": "K.C. Pharmaceuticals, Inc.",
+   "address_1": "3420 Pomona Blvd",
+   "address_2": "N/A",
+   "postal_code": "91768-3236",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "E-Mail",
+   "distribution_pattern": "US Nationwide",
+   "recall_number": "D-0004-2027",
+   "product_description": "Sterile EYE DROPS Advanced Relief, (dextran 70, 0.1%, polyethylene glycol 400 1% and tetrahydrozoline HCl 0.05%), 0.5 FL OZ (15 mL) bottles, Sterile; a) LEADER, DISTRIBUTED BY CARDINAL HEALTH, DUBLIN, OHIO 43017, www.myleader.com, NDC 70000-0456-1; b) Equaline, DISTRIBUTED BY: UNFI, PROVIDENCE, RI 02908 UPC 0 41163 25392 6; c) GoodSense, Distributed By: Geiss, Destin& Dunn, Inc., A Perrigo Company, Peachtree City, GA 30269, www.PerrigoDirect.com, NDC 50804-130-01; d) H.E.B A.C. Eye Drops, MADE WITH PRIDE & CARE FOR H-E-B, SAN ANTONIO, TX 78204, UPC 0 41220 43745 0; e) Medic'c Choice, Manufactured by KC Pharmaceuticals, Inc., Pomona, CA 91768, NDC 55651-025-01; f) Foster & Thrive, Distributed by: McKesson Corp., via Strategic Sourcing Services LLC, Memphis, TN 38141, NDC 70677-1158-1; g) Colirio Manzanill A+, Distributed by: PRO-MEX, P.O Box 63-0716, Miami , FL 33163, UPC: 1 84125 00018 0; h) P, DISTRIBUTED BY PUBLIX SUPER MARKETS, INC, 3300 PUBLIX CORPORATE PARKWAY, LAKELAND, FL 33811, UPC 0 41415 06776 9; I) QC-Quality Choice, Distributed by: CDMA, Inc., Novi, MI 48375, NDC 83324-191-14; J) TopCare health, DISTRIBUTED BY TOPCO ASSOCIATES LLC, ELKGROVE VILLAGE, IL 60007, UPC 0 36800 03641 3.",
+   "product_quantity": "208,896 cartons",
+   "reason_for_recall": "Lack of Assurance of Sterility",
+   "recall_initiation_date": "20260911",
+   "center_classification_date": "20261005",
+   "report_date": "20261014",
+   "code_info": "Lot: a) AR25A02, Exp.: 1/1/2027; b) AR25A02, Exp.: 1/1/2027; c) AR25A01, Exp.: 1/1/2027; AR25N01, Exp.: 11/30/2027; d) AR25A02, Exp.: 1/1/2027; e) AR25A02, Exp.: 1/1/2027; f) AR25A02, Exp.: 1/1/2027; g) AR25F01, Exp.: 6/30/2027; AR25N01, Exp.: 11/30/2027; h) AR25A02, Exp.: 1/1/2027; I) AR25A01, Exp.: 1/1/2027; AR25N01, Exp.: 11/30/2027; J) AR25A01, Exp.: 1/1/2027."
+  }
+ ]
+}

@@ -1,177 +1,455 @@
 {
   "manifest_version": 1,
   "type": "device",
-  "name": "Demo Devices Template",
+  "name": "Recalls US",
   "description": {
-    "en": "Starter template showing sensors, a switch, a dimmable light and a smart plug.",
-    "fr": "Template de démarrage : capteurs, interrupteur, lampe variable et prise connectée."
+    "en": "Recalls in the United States: consumer products, food, drugs and your vehicles.",
+    "fr": "Rappels aux États-Unis : produits, aliments, médicaments et vos véhicules."
   },
-  "version": "1.0.0",
-  "docker_image": "ghcr.io/gladysassistant/integration-template-js:1.0.0",
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/lm1lc3n7/gladys-recalls-us:0.1.0",
   "gladys_version": ">=5.1.0",
-  "cover_image": "https://raw.githubusercontent.com/GladysAssistant/integration-template-js/master/cover.png",
-  "categories": ["lighting", "security", "environment"],
-  "transports": ["local", "cloud"],
+  "cover_image": "https://raw.githubusercontent.com/LM1LC3N7/gladys-recalls-us/main/cover.png",
+  "categories": ["environment", "notifications"],
+  "transports": ["cloud"],
   "config_schema": [
     {
       "key": "intro",
       "type": "section",
-      "label": { "en": "Getting started", "fr": "Pour commencer" },
+      "label": {
+        "en": "Your selection",
+        "fr": "Votre sélection"
+      },
       "description": {
-        "en": "The demo weather station reads real data from the free Open-Meteo API: pick the coordinates to observe. No account, no API key.",
-        "fr": "La station météo de démonstration lit de vraies données via l'API gratuite Open-Meteo : choisissez les coordonnées à observer. Pas de compte, pas de clé d'API."
+        "en": "Three US agencies publish their recalls as open data: CPSC (consumer products), the FDA (food, drugs, medical devices) and NHTSA (vehicles). Choose the categories to follow, brands or words if you like, and your vehicles. Save, then create the device in the Discover tab.",
+        "fr": "Trois agences américaines publient leurs rappels en données ouvertes : la CPSC (produits de consommation), la FDA (aliments, médicaments, dispositifs médicaux) et la NHTSA (véhicules). Choisissez les catégories à suivre, des marques ou des mots si vous le souhaitez, et vos véhicules. Enregistrez, puis créez l’appareil dans l’onglet Découverte."
       },
       "links": [
         {
-          "url": "https://open-meteo.com/en/docs",
-          "label": { "en": "Open-Meteo documentation", "fr": "Documentation Open-Meteo" }
+          "url": "https://github.com/LM1LC3N7/gladys-recalls-us/blob/main/docs/en.md",
+          "label": {
+            "en": "Setup guide",
+            "fr": "Guide d’installation"
+          }
         }
       ]
     },
     {
-      "key": "latitude",
-      "type": "number",
-      "label": { "en": "Latitude", "fr": "Latitude" },
-      "description": {
-        "en": "Latitude used for the demo weather sensor.",
-        "fr": "Latitude utilisée par le capteur météo de démonstration."
+      "key": "about",
+      "type": "section",
+      "label": {
+        "en": "Sources and limits",
+        "fr": "Sources et limites"
       },
-      "placeholder": { "en": "e.g. 48.8566", "fr": "ex. 48.8566" },
-      "required": true,
-      "default": 48.8566,
-      "min": -90,
-      "max": 90
-    },
-    {
-      "key": "longitude",
-      "type": "number",
-      "label": { "en": "Longitude", "fr": "Longitude" },
       "description": {
-        "en": "Longitude used for the demo weather sensor.",
-        "fr": "Longitude utilisée par le capteur météo de démonstration."
+        "en": "Data read without an account nor a key: saferproducts.gov (CPSC), openFDA enforcement reports (weekly) and NHTSA. The recalls of a vehicle are those of its make, model and year: NHTSA's site, with the VIN, says whether yours was repaired. A complement, not an official alert system: always check the recall sheet. Not affiliated with any US agency; openFDA data is not for medical decisions.",
+        "fr": "Données lues sans compte ni clé : saferproducts.gov (CPSC), rapports d’application de la loi d’openFDA (hebdomadaires) et NHTSA. Les rappels d’un véhicule sont ceux de sa marque, de son modèle et de son année : le site de la NHTSA, avec le NIV, dit si le vôtre a été réparé. Un complément, pas un système d’alerte officiel : vérifiez toujours la fiche de rappel. Non affiliée aux agences américaines ; les données d’openFDA ne servent pas à des décisions médicales."
       },
-      "placeholder": { "en": "e.g. 2.3522", "fr": "ex. 2.3522" },
-      "required": true,
-      "default": 2.3522,
-      "min": -180,
-      "max": 180
-    },
-    {
-      "key": "unit",
-      "type": "select",
-      "label": { "en": "Temperature unit", "fr": "Unité de température" },
-      "required": false,
-      "default": "celsius",
-      "options": [
-        { "value": "celsius", "label": { "en": "Celsius", "fr": "Celsius" } },
-        { "value": "fahrenheit", "label": { "en": "Fahrenheit", "fr": "Fahrenheit" } }
+      "links": [
+        {
+          "url": "https://www.recalls.gov",
+          "label": {
+            "en": "Recalls.gov",
+            "fr": "Recalls.gov"
+          }
+        },
+        {
+          "url": "https://www.nhtsa.gov/recalls",
+          "label": {
+            "en": "NHTSA recalls by VIN",
+            "fr": "Rappels NHTSA par NIV"
+          }
+        }
       ]
     },
     {
-      "key": "poll_frequency",
-      "type": "number",
-      "label": { "en": "Refresh interval (s)", "fr": "Intervalle de rafraîchissement (s)" },
+      "key": "categories",
+      "type": "multi_select",
+      "label": {
+        "en": "Categories",
+        "fr": "Catégories"
+      },
       "description": {
-        "en": "How often sensors are polled, in seconds (one minute minimum).",
-        "fr": "Fréquence d'interrogation des capteurs, en secondes (une minute minimum)."
+        "en": "Recalls of these categories are followed. About 40 consumer products, 45 food and 50 drug recalls a month (autumn 2026); medical devices, about 250 a month, mostly hospital equipment, are not followed by default.",
+        "fr": "Les rappels de ces catégories sont suivis. Environ 40 produits de consommation, 45 aliments et 50 médicaments par mois (automne 2026) ; les dispositifs médicaux, environ 250 par mois, surtout du matériel hospitalier, ne sont pas suivis par défaut."
       },
       "required": false,
-      "default": 300,
-      "min": 60,
-      "max": 3600
+      "default": ["consumer", "food", "drugs"],
+      "options": [
+        {
+          "value": "consumer",
+          "label": {
+            "en": "Consumer products (CPSC)",
+            "fr": "Produits de consommation (CPSC)"
+          }
+        },
+        {
+          "value": "food",
+          "label": {
+            "en": "Food (FDA)",
+            "fr": "Aliments (FDA)"
+          }
+        },
+        {
+          "value": "drugs",
+          "label": {
+            "en": "Drugs (FDA)",
+            "fr": "Médicaments (FDA)"
+          }
+        },
+        {
+          "value": "devices",
+          "label": {
+            "en": "Medical devices (FDA, mostly professional)",
+            "fr": "Dispositifs médicaux (FDA, surtout professionnels)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "keywords",
+      "type": "string",
+      "label": {
+        "en": "Brands or words (optional)",
+        "fr": "Marques ou mots (facultatif)"
+      },
+      "description": {
+        "en": "Only the CPSC and FDA recalls naming one of them (title, product or firm), separated by commas. Whole words; accents and case do not matter. Empty: every recall of the categories. Vehicles are not filtered.",
+        "fr": "Seulement les rappels CPSC et FDA qui en citent un (titre, produit ou entreprise), séparés par des virgules. Mots entiers ; accents et majuscules indifférents. Vide : tous les rappels des catégories. Les véhicules ne sont pas filtrés."
+      },
+      "placeholder": {
+        "en": "e.g. peanut, IKEA, crib",
+        "fr": "ex. peanut, IKEA, crib"
+      },
+      "required": false,
+      "default": ""
+    },
+    {
+      "key": "vehicles",
+      "type": "string",
+      "label": {
+        "en": "Vehicles (optional)",
+        "fr": "Véhicules (facultatif)"
+      },
+      "description": {
+        "en": "Make, model and model year of each vehicle, separated by semicolons, as NHTSA spells them. Five vehicles at most, VINs included.",
+        "fr": "Marque, modèle et année-modèle de chaque véhicule, séparés par des points-virgules, tels que la NHTSA les écrit. Cinq véhicules au plus, NIV compris."
+      },
+      "placeholder": {
+        "en": "e.g. Honda, Civic, 2019; Ford, F-150, 2021",
+        "fr": "ex. Honda, Civic, 2019; Ford, F-150, 2021"
+      },
+      "required": false,
+      "default": ""
+    },
+    {
+      "key": "vins",
+      "type": "secret",
+      "label": {
+        "en": "VINs (optional)",
+        "fr": "NIV (facultatif)"
+      },
+      "description": {
+        "en": "Up to 3 VINs (17 characters), separated by commas, instead of typing the vehicles. Kept by Gladys in its database, never shown again, sent only to NHTSA (vPIC) to learn the make, model and year; never written in the logs, the status or the memory of the integration.",
+        "fr": "Jusqu’à 3 NIV (17 caractères), séparés par des virgules, au lieu de saisir les véhicules. Gardés par Gladys dans sa base, jamais réaffichés, envoyés seulement à la NHTSA (vPIC) pour connaître la marque, le modèle et l’année ; jamais écrits dans les journaux, le statut ni la mémoire de l’intégration."
+      },
+      "required": false
+    },
+    {
+      "key": "refresh_interval",
+      "type": "select",
+      "label": {
+        "en": "Check interval",
+        "fr": "Fréquence de vérification"
+      },
+      "description": {
+        "en": "Each source is read once per interval, one request at a time. The FDA publishes once a week, CPSC a few times a week.",
+        "fr": "Chaque source est lue une fois par intervalle, une requête à la fois. La FDA publie une fois par semaine, la CPSC quelques fois par semaine."
+      },
+      "required": false,
+      "default": "6",
+      "options": [
+        {
+          "value": "3",
+          "label": {
+            "en": "3 hours",
+            "fr": "3 heures"
+          }
+        },
+        {
+          "value": "6",
+          "label": {
+            "en": "6 hours",
+            "fr": "6 heures"
+          }
+        },
+        {
+          "value": "12",
+          "label": {
+            "en": "12 hours",
+            "fr": "12 heures"
+          }
+        },
+        {
+          "value": "24",
+          "label": {
+            "en": "24 hours",
+            "fr": "24 heures"
+          }
+        }
+      ]
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "label": {
+        "en": "Language of the texts",
+        "fr": "Langue des textes"
+      },
+      "description": {
+        "en": "The names of the features (at their creation) and the texts sent to the scenes. The recalls themselves are published in English.",
+        "fr": "Les noms des fonctionnalités (à leur création) et les textes envoyés aux scènes. Les rappels eux-mêmes sont publiés en anglais."
+      },
+      "required": false,
+      "default": "en",
+      "options": [
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "Anglais"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "French",
+            "fr": "Français"
+          }
+        }
+      ]
     }
   ],
   "actions": [
     {
-      "key": "test_weather",
-      "label": { "en": "Test the weather provider", "fr": "Tester le fournisseur météo" },
+      "key": "check_now",
+      "label": {
+        "en": "Show the recalls of the last 7 days",
+        "fr": "Afficher les rappels des 7 derniers jours"
+      },
       "timeout_seconds": 30
-    },
-    {
-      "key": "identify",
-      "label": { "en": "Identify a device", "fr": "Identifier un appareil" },
-      "fields": [
-        {
-          "key": "device",
-          "type": "select",
-          "source": "devices",
-          "label": { "en": "Device", "fr": "Appareil" },
-          "required": true
-        }
-      ]
     }
   ],
   "scene_triggers": [
     {
-      "key": "motion_detected",
-      "label": { "en": "Motion detected", "fr": "Mouvement détecté" },
+      "key": "new_recall",
+      "label": {
+        "en": "United States: new recall in my selection",
+        "fr": "États-Unis : nouveau rappel dans ma sélection"
+      },
       "description": {
-        "en": "A demo motion sensor saw a person or an animal move.",
-        "fr": "Un détecteur de démonstration a vu bouger une personne ou un animal."
+        "en": "A new recall of the followed categories, brands or words, or a new campaign for a followed vehicle.",
+        "fr": "Un nouveau rappel des catégories, marques ou mots suivis, ou une nouvelle campagne pour un véhicule suivi."
       },
       "fields": [
         {
-          "key": "device",
-          "type": "select",
-          "source": "devices",
-          "label": { "en": "Sensor", "fr": "Détecteur" }
-        },
-        {
-          "key": "target",
+          "key": "category",
           "type": "multi_select",
-          "label": { "en": "What moved", "fr": "Ce qui a bougé" },
+          "label": {
+            "en": "Categories",
+            "fr": "Catégories"
+          },
           "options": [
-            { "value": "person", "label": { "en": "Person", "fr": "Personne" } },
-            { "value": "animal", "label": { "en": "Animal", "fr": "Animal" } }
+            {
+              "value": "consumer",
+              "label": {
+                "en": "Consumer products (CPSC)",
+                "fr": "Produits de consommation (CPSC)"
+              }
+            },
+            {
+              "value": "food",
+              "label": {
+                "en": "Food (FDA)",
+                "fr": "Aliments (FDA)"
+              }
+            },
+            {
+              "value": "drugs",
+              "label": {
+                "en": "Drugs (FDA)",
+                "fr": "Médicaments (FDA)"
+              }
+            },
+            {
+              "value": "devices",
+              "label": {
+                "en": "Medical devices (FDA, mostly professional)",
+                "fr": "Dispositifs médicaux (FDA, surtout professionnels)"
+              }
+            },
+            {
+              "value": "vehicles",
+              "label": {
+                "en": "Vehicles (NHTSA)",
+                "fr": "Véhicules (NHTSA)"
+              }
+            }
           ]
         }
       ],
       "variables": [
         {
-          "key": "target",
+          "key": "title",
           "type": "string",
-          "label": { "en": "What moved", "fr": "Ce qui a bougé" }
+          "label": {
+            "en": "Title",
+            "fr": "Titre"
+          }
+        },
+        {
+          "key": "product",
+          "type": "string",
+          "label": {
+            "en": "Product",
+            "fr": "Produit"
+          }
+        },
+        {
+          "key": "firm",
+          "type": "string",
+          "label": {
+            "en": "Firm or manufacturer",
+            "fr": "Entreprise ou constructeur"
+          }
+        },
+        {
+          "key": "category",
+          "type": "string",
+          "label": {
+            "en": "Category (consumer, food…)",
+            "fr": "Catégorie (consumer, food…)"
+          }
+        },
+        {
+          "key": "category_name",
+          "type": "string",
+          "label": {
+            "en": "Category, in words",
+            "fr": "Catégorie, en toutes lettres"
+          }
+        },
+        {
+          "key": "issue",
+          "type": "string",
+          "label": {
+            "en": "Reason or hazard",
+            "fr": "Motif ou danger"
+          }
+        },
+        {
+          "key": "remedy",
+          "type": "string",
+          "label": {
+            "en": "Remedy",
+            "fr": "Remède"
+          }
+        },
+        {
+          "key": "recall_class",
+          "type": "string",
+          "label": {
+            "en": "FDA class",
+            "fr": "Classe FDA"
+          }
+        },
+        {
+          "key": "vehicle",
+          "type": "string",
+          "label": {
+            "en": "Vehicle",
+            "fr": "Véhicule"
+          }
+        },
+        {
+          "key": "day",
+          "type": "string",
+          "label": {
+            "en": "Date (YYYY-MM-DD)",
+            "fr": "Date (AAAA-MM-JJ)"
+          }
+        },
+        {
+          "key": "url",
+          "type": "string",
+          "label": {
+            "en": "Link",
+            "fr": "Lien"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary, in one sentence",
+            "fr": "Résumé, en une phrase"
+          }
         }
       ]
     }
   ],
   "scene_actions": [
     {
-      "key": "identify_device",
-      "label": { "en": "Identify a device", "fr": "Identifier un appareil" },
-      "description": {
-        "en": "Make a device signal itself (the demo light blinks).",
-        "fr": "Fait se signaler un appareil (la lampe de démonstration clignote)."
+      "key": "read_recalls",
+      "label": {
+        "en": "United States: read the recalls of the last 7 days",
+        "fr": "États-Unis : lire les rappels des 7 derniers jours"
       },
-      "timeout_seconds": 15,
-      "fields": [
-        {
-          "key": "device",
-          "type": "select",
-          "source": "devices",
-          "label": { "en": "Device", "fr": "Appareil" },
-          "required": true
-        }
-      ],
+      "description": {
+        "en": "The recalls of your selection over 7 days and the campaigns of your vehicles as one sentence, to send by message or read aloud.",
+        "fr": "Les rappels de votre sélection sur 7 jours et les campagnes de vos véhicules en une phrase, à envoyer par message ou à lire à voix haute."
+      },
+      "timeout_seconds": 30,
       "outputs": [
         {
-          "key": "signalled",
-          "type": "boolean",
-          "label": { "en": "Device signalled", "fr": "Appareil signalé" }
+          "key": "text",
+          "type": "string",
+          "label": {
+            "en": "Recalls, in one sentence",
+            "fr": "Rappels, en une phrase"
+          }
+        },
+        {
+          "key": "count",
+          "type": "number",
+          "label": {
+            "en": "Recalls in 7 days",
+            "fr": "Rappels sur 7 jours"
+          }
+        },
+        {
+          "key": "vehicle_count",
+          "type": "number",
+          "label": {
+            "en": "Vehicle recall campaigns (absent without vehicle)",
+            "fr": "Campagnes de rappel des véhicules (absent sans véhicule)"
+          }
         }
       ]
     }
   ],
   "widgets": [
     {
-      "key": "demo_status",
-      "label": { "en": "Demo status", "fr": "État de la démo" },
-      "description": {
-        "en": "Live temperature and plug power, plug connection and observed location.",
-        "fr": "Température et puissance en direct, connexion de la prise, position observée."
+      "key": "recalls",
+      "label": {
+        "en": "Recalls in the United States",
+        "fr": "Rappels aux États-Unis"
       },
-      "icon": "activity",
-      "action_timeout_seconds": 15
+      "description": {
+        "en": "Latest recalls of your selection and the campaigns of your vehicles, with links.",
+        "fr": "Derniers rappels de votre sélection et campagnes de vos véhicules, avec les liens."
+      },
+      "icon": "alert-triangle"
     }
   ]
 }

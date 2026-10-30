@@ -1,67 +1,192 @@
-# Template de démonstration
+# Rappels aux États-Unis
 
-Ceci est la documentation utilisateur de l'intégration. Gladys ré-héberge ce
-fichier et affiche un lien **Documentation** permanent vers lui dans l'écran
-de configuration (dans la langue de l'utilisateur, avec l'anglais en repli) —
-c'est au moment de configurer que l'utilisateur en a le plus besoin. Gardez
-les courtes indications d'accueil dans les blocs `section` du `config_schema`
-du manifest ; mettez ici le pas-à-pas détaillé (captures d'écran, dépannage…).
+Les rappels publiés aux États-Unis, lus dans les données publiques de trois
+agences : les produits de consommation de la Consumer Product Safety
+Commission (CPSC), les aliments, médicaments et dispositifs médicaux de la
+Food and Drug Administration (rapports d’application de la loi d’openFDA),
+et les campagnes de rappel de vos véhicules à la National Highway Traffic
+Safety Administration (NHTSA), par marque, modèle et année-modèle, ou par
+NIV. L’intégration donne à Gladys un appareil à trois valeurs, un
+déclencheur de scène pour chaque nouveau rappel de votre sélection, une
+action de scène et un widget de tableau de bord.
+
+Elle a été essayée contre les vrais services (30/10/2026) et sur de faux
+serveurs bâtis d’après leurs réponses, pas encore sur des semaines d’usage
+réel ni avec un vrai Gladys. Aucun appareil chez vous : les données viennent
+du cloud.
 
 ## Ce que vous obtenez
 
-Six appareils de démonstration apparaissent après l'installation : une
-station météo (vraies données Open-Meteo), un interrupteur, une lampe
-variable, une prise connectée avec mesure de puissance, un détecteur de
-mouvement et une caméra.
+- Un appareil **Rappels aux États-Unis** avec :
+  - **Rappels sur 7 jours** : les rappels de votre sélection dont le jour est
+    l’un des 7 derniers (aujourd’hui compris, dans le fuseau de Gladys) : la
+    date de rappel de la CPSC, la date de rapport de la FDA (un mercredi, une
+    fois par semaine), le jour où la NHTSA a reçu le rapport d’une campagne
+    de véhicule.
+  - **Campagnes de rappel des véhicules** : les campagnes que la NHTSA liste
+    pour vos véhicules, toutes années confondues. Pas de valeur quand aucun
+    véhicule n’est suivi.
+  - **Dernier rappel** : le plus récent des 7 jours, avec son jour.
+- Un déclencheur **États-Unis : nouveau rappel dans ma sélection**, avec le
+  titre, le produit, l’entreprise, la catégorie, le motif, le remède, la
+  classe FDA, le véhicule, le jour, le lien et un résumé en une phrase comme
+  variables. Le déclencheur peut se limiter à certaines catégories
+  (véhicules compris).
+- Une action de scène **États-Unis : lire les rappels des 7 derniers jours**
+  (une phrase à envoyer par message ou à lire à voix haute, le nombre sur 7
+  jours, et le nombre de campagnes des véhicules, absent si aucun véhicule
+  n’est suivi).
+- Un widget **Rappels aux États-Unis** : les rappels des 7 jours, puis les
+  dernières campagnes de vos véhicules, les plus graves en rouge (classe I de
+  la FDA, ou véhicule que la NHTSA conseille de ne pas conduire ou de garer
+  dehors), avec les liens.
+- Un bouton **Afficher les rappels des 7 derniers jours** dans la
+  configuration.
 
 ## Configuration
 
-1. Ouvrez l'onglet **Configuration** de l'intégration.
-2. Renseignez la **latitude** et la **longitude** que la station météo de
-   démonstration doit observer (Paris par défaut), et choisissez votre unité
-   de température. L'**intervalle de rafraîchissement** règle la fréquence
-   de lecture de la station météo et de la puissance de la prise : toutes
-   les 5 minutes par défaut, toutes les minutes au plus.
-3. Enregistrez : les appareils apparaissent dans l'onglet **Découverte**,
-   prêts à être ajoutés.
+1. **Catégories** : produits de consommation (CPSC), aliments (FDA),
+   médicaments (FDA), dispositifs médicaux (FDA). Les dispositifs médicaux
+   ne sont pas suivis par défaut : environ 250 par mois, presque tous du
+   matériel hospitalier.
+2. **Marques ou mots** (facultatif) : seulement les rappels CPSC et FDA qui
+   en citent un dans leur titre, leur produit ou leur entreprise, séparés par
+   des virgules. Accents et majuscules indifférents ; un mot ne trouve que
+   des mots entiers (« nut » ne trouve pas « peanut »). Les véhicules ne sont
+   pas filtrés. Les rappels étant en anglais, les mots aussi.
+3. **Véhicules** (facultatif) : `marque, modèle, année` pour chaque véhicule,
+   séparés par des points-virgules, par ex. `Honda, Civic, 2019; Ford,
+F-150, 2021`, écrits comme la NHTSA les écrit
+   ([nhtsa.gov/recalls](https://www.nhtsa.gov/recalls) les liste). Un
+   véhicule que la NHTSA ne connaît pas n’a aucune campagne : le statut
+   demande alors de vérifier l’orthographe.
+4. **NIV** (facultatif) : jusqu’à 3 NIV (VIN, 17 caractères), séparés par des
+   virgules, au lieu de saisir les véhicules. Cinq véhicules en tout.
+5. **Fréquence de vérification** : 3, 6 (par défaut), 12 ou 24 heures.
+6. **Langue des textes** : anglais ou français : les noms des
+   fonctionnalités à leur création et les textes envoyés aux scènes. Les
+   rappels eux-mêmes sont publiés en anglais par les agences.
 
-Le réglage **Préférer la connexion locale** pilote la prise de
-démonstration : elle affiche en badge le canal réellement utilisé (local ou
-cloud), avec un point orange quand elle fonctionne en mode dégradé (local
-refusé, bascule cloud).
+Enregistrez, puis créez l’appareil dans l’onglet **Découverte**.
 
-## Actions
+## Vos NIV
 
-- **Tester le fournisseur météo** — effectue une requête en direct vers
-  Open-Meteo et affiche la température et l'humidité actuelles sous le
-  bouton.
-- **Identifier un appareil** — choisissez un de vos appareils dans la liste
-  et il se signale (la lampe de démonstration « clignote » dans les logs).
+Un NIV est un champ de type secret : gardé par Gladys dans sa base, jamais
+réaffiché, envoyé seulement à la NHTSA (vPIC, `vpic.nhtsa.dot.gov`) pour
+connaître la marque, le modèle et l’année-modèle. L’intégration ne l’écrit
+jamais dans ses journaux (debug compris), son statut, sa mémoire (`/data`),
+les événements de scène, le widget ni les actions : ils disent « NIV 2 » et
+la marque, le modèle et l’année. `/data` garde les campagnes sous la marque,
+le modèle et l’année, comme pour un véhicule saisi.
 
-## Scènes
+Un NIV est décodé quand il est enregistré, à chaque démarrage, puis une fois
+par jour. Un démarrage moins de 10 minutes après un décodage (conteneur qui
+redémarre en boucle) ne redemande pas vPIC : il reprend la marque, le modèle
+et l’année décodés alors, gardés par position dans `/data` (jamais le NIV),
+jusqu’à la fin des 10 minutes. Un NIV changé pendant que l’intégration était
+arrêtée est donc suivi avec 10 minutes de retard au plus. Les rappels sont alors ceux de la
+marque, du modèle et de l’année, **pas** de votre véhicule précis : savoir si
+le vôtre a déjà été réparé n’est possible que sur le site de la NHTSA, avec
+le NIV ([nhtsa.gov/recalls](https://www.nhtsa.gov/recalls)), qu’aucune
+interface publique ne donne.
 
-L'intégration ajoute ses propres cartes à l'éditeur de scènes (Gladys 5.1
-ou plus récent), dans la catégorie **Intégrations** :
+## Fonctionnement
 
-- **Mouvement détecté** (déclencheur) — lance la scène quand un détecteur
-  de démonstration voit bouger quelque chose. Choisissez éventuellement le
-  détecteur et ce qui a bougé (personne, animal) ; laissés vides, toute
-  détection correspond. Les actions suivantes peuvent lire ce qui a bougé
-  avec `{{triggerEvent.data.target}}`.
-- **Identifier un appareil** (action) — fait se signaler l'appareil choisi.
-  Elle indique si l'appareil a pu se signaler, pour que les actions
-  suivantes puissent en dépendre.
+Chaque source est lue une fois par intervalle, une requête à la fois, à une
+seconde d’écart, avec un User-Agent au nom de l’intégration :
 
-## Tableau de bord
+- CPSC : les rappels des 21 derniers jours (environ 40 par mois) ;
+- openFDA : les rapports des 21 derniers jours, pour chaque catégorie suivie
+  (1 000 au plus par requête ; au-delà, le statut dit que certains
+  sont ignorés). openFDA répond « non modifié » quand rien n’a changé ; sans
+  clé, son quota est de 1 000 requêtes par jour et par adresse, bien
+  au-dessus de ce que l’intégration demande ;
+- NHTSA : les campagnes de chaque véhicule.
 
-Ajoutez le widget **État de la démo** à un tableau de bord : il affiche en
-direct la température de la station météo et la puissance de la prise du
-bureau, la connexion utilisée par la prise (en orange si dégradée) et la
-position observée. Son bouton **Identifier la lampe** fait se signaler la
-lampe de démonstration.
+Un rappel est **nouveau** quand son numéro était absent de toutes les
+réponses de sa source lues avant. La première réponse d’une source ne
+déclenche rien (ce qui y figure alors n’est pas une nouveauté), pas plus
+qu’une sélection élargie. Un nouveau rappel CPSC ou FDA dont le jour a plus
+de 14 jours est retenu sans déclencher ; une campagne de véhicule déclenche
+quel que soit son jour (elle est nouvelle pour votre véhicule). Un événement
+de scène refusé par Gladys est renvoyé à la lecture suivante de sa source ;
+20 événements au plus partent par vérification, les autres à la suivante,
+200 au plus en attente par source (au-delà, les plus anciens sont abandonnés
+et le statut le dit). Un événement est envoyé avant que `/data`
+l’enregistre : si l’intégration est tuée entre les deux, il est renvoyé
+après le redémarrage.
 
-## Dépannage
+Ce qui a été vu, la copie des rappels récents et l’heure de la dernière
+lecture de chaque source sont gardés dans `/data` : un redémarrage ne
+redéclenche rien, garde l’heure prévue de la lecture suivante et publie les
+copies gardées si elles sont encore fraîches. Une source ajoutée par la
+configuration est lue tout de suite ; une source retirée puis remise garde
+son heure. Des configurations enregistrées coup sur coup s’appliquent dans
+l’ordre : la dernière gagne.
 
-L'intégration journalise tout ce qu'elle fait : consultez les logs de
-l'intégration depuis l'interface Gladys (ou `docker logs` sur l'hôte) avec
-`LOG_LEVEL=debug` pour le détail complet.
+## Statut et pannes
+
+Chaque source est indépendante : une source en échec ou qui demande
+d’attendre ne retient pas la lecture des autres (les compteurs, eux,
+attendent toutes les sources, voir plus bas). Le statut de l’intégration dit :
+
+- une source est illisible (réseau, erreur HTTP, réponse dans un autre
+  format), avec son prochain essai : 15 minutes plus tard, puis 30, doublé
+  jusqu’à l’intervalle ; une réponse « 429 » ou « 5xx » met cette agence en
+  pause de 1 minute à 6 heures (le `Retry-After` du serveur quand il en
+  donne un), gardée au redémarrage ;
+- un NIV ne peut pas être décodé, ou ne fait pas 17 caractères valides (par
+  sa position) ;
+- un véhicule n’est pas compris, ou il y a plus de 5 véhicules ;
+- un véhicule n’a aucune campagne connue de la NHTSA (vérifier
+  l’orthographe) ;
+- openFDA n’a pas chargé de nouveaux rapports depuis 21 jours (comparé à la
+  date que donne le serveur) : les compteurs ne sont alors plus publiés
+  jusqu’à sa mise à jour ;
+- rien n’est suivi ;
+- `/data` est illisible, ne peut pas être écrit ou ne répond pas (les lectures
+  continuent) ;
+- plus de 200 nouveaux rappels d’une source attendent Gladys (les plus anciens
+  abandonnés).
+
+## À jour ou non
+
+Les rappels sont **à jour** quand chaque source suivie a été lue avec succès
+il y a moins de deux intervalles et une heure, et qu’openFDA n’est pas
+périmé. Sinon :
+
+- les compteurs de l’appareil ne sont pas publiés (ils gardent leur dernière
+  valeur) : jamais un nombre qui oublie une source, jamais 0 pour ce qui est
+  inconnu ;
+- l’action de scène échoue avec la raison (« Les rappels ne sont pas à jour :
+  CPSC (produits de consommation) lu pour la dernière fois le … », « Pas
+  encore lu : FDA (aliments). », « Rien n’est suivi »), pour qu’une scène ne
+  lise jamais « aucun rappel » sur des données qui ne sont pas à jour ;
+- le bouton de configuration donne cette raison au lieu des rappels ;
+- le widget titre « Rappels non à jour » (ou « En attente des sources »,
+  « Rien n’est suivi ») et liste les rappels des sources qui le sont.
+
+Quand la dernière lecture d’une source a échoué mais que ses rappels sont
+encore à jour, l’action de scène, le bouton et le widget les donnent avec un
+avertissement en tête (« Attention : la dernière lecture a échoué pour CPSC
+(produits de consommation) (… ; rappels du …). »).
+
+## Limites
+
+- Un complément, pas un système d’alerte officiel : vérifiez toujours la
+  fiche de rappel. Non affiliée à la CPSC, la FDA, la NHTSA ni à aucune
+  agence américaine.
+- openFDA : « Do not rely on openFDA to make decisions regarding medical
+  care » ; ses rapports arrivent une fois par semaine, avec quelques jours de
+  retard, et ne contiennent pas tous les rappels de la semaine (certains
+  arrivent plus tard). Les rapports de la FDA n’ont pas de lien propre : le
+  lien mène à la page des rappels de la FDA.
+- Les campagnes d’un véhicule sont celles d’une marque, d’un modèle et d’une
+  année, pas de votre véhicule.
+
+## Données et licence
+
+Rappels de la CPSC (saferproducts.gov), openFDA (api.fda.gov) et NHTSA
+(api.nhtsa.gov, vpic.nhtsa.dot.gov) : données publiques du gouvernement des
+États-Unis, lues sans compte ni clé. Voir
+[open.fda.gov/license](https://open.fda.gov/license/).

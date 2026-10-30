@@ -1,61 +1,165 @@
-# Demo Devices Template
+# Recalls in the United States
 
-This is the user documentation of the integration. Gladys re-hosts this file
-and shows a permanent **Documentation** link to it in the Configuration screen
-(in the user's language, with English as the fallback) — it is when
-configuring that the user needs it most. Keep the short onboarding hints in
-the `section` blocks of the manifest `config_schema`; put the long
-step-by-step (screenshots, troubleshooting…) here.
+Recalls published in the United States, read from the public data of three
+agencies: consumer products of the Consumer Product Safety Commission (CPSC),
+food, drugs and medical devices of the Food and Drug Administration (openFDA
+enforcement reports), and the recall campaigns of your vehicles at the
+National Highway Traffic Safety Administration (NHTSA), by make, model and
+model year, or by VIN. The integration gives Gladys a device with three
+values, a scene trigger for each new recall of your selection, a scene action
+and a dashboard widget.
+
+It was tested against the real services (30/10/2026) and on fake servers built
+from their answers, not yet over weeks of real use nor with a real Gladys.
+No device of yours is involved: the data comes from the cloud.
 
 ## What you get
 
-Six demo devices show up after installation: a weather station (real data
-from Open-Meteo), a switch, a dimmable light, a smart plug with power
-metering, a motion sensor and a camera.
+- A device **Recalls in the United States** with:
+  - **Recalls in 7 days**: the recalls of your selection whose day is one of
+    the last 7 days (today included, in the time zone of Gladys): the recall
+    date of CPSC, the report date of the FDA (a Wednesday, once a week), the
+    day NHTSA received the report of a vehicle campaign.
+  - **Vehicle recall campaigns**: the campaigns NHTSA lists for your
+    vehicles, all years together. No value when no vehicle is followed.
+  - **Latest recall**: the newest recall of the 7 days, with its day.
+- A scene trigger **United States: new recall in my selection**, with the
+  title, product, firm, category, reason, remedy, FDA class, vehicle, day,
+  link and a one-sentence summary as variables. The trigger can be limited to
+  some categories (vehicles included).
+- A scene action **United States: read the recalls of the last 7 days** (a
+  sentence to send by message or read aloud, the count of the 7 days, and the
+  count of the vehicle campaigns, absent when no vehicle is followed).
+- A widget **Recalls in the United States**: the recalls of the 7 days, then
+  the latest campaigns of your vehicles, the most serious in red (FDA Class I,
+  or a vehicle NHTSA advises not to drive or to park outside), with links.
+- A button **Show the recalls of the last 7 days** in the configuration.
 
 ## Configuration
 
-1. Open the **Configuration** tab of the integration.
-2. Set the **latitude** and **longitude** the demo weather station should
-   observe (they default to Paris), and pick your temperature unit.
-   The **refresh interval** sets how often the weather station and the
-   plug's power are read: every 5 minutes by default, every minute at most.
-3. Save: the devices appear in the **Discovery** tab, ready to be added.
+1. **Categories**: consumer products (CPSC), food (FDA), drugs (FDA),
+   medical devices (FDA). Medical devices are not followed by default: about
+   250 a month, nearly all hospital equipment.
+2. **Brands or words** (optional): only the CPSC and FDA recalls naming one
+   of them in their title, product or firm, separated by commas. Accents and
+   case do not matter; a word matches whole words only ("nut" does not match
+   "peanut"). Vehicles are not filtered.
+3. **Vehicles** (optional): `make, model, year` for each vehicle, separated
+   by semicolons, e.g. `Honda, Civic, 2019; Ford, F-150, 2021`, spelled as
+   NHTSA spells them ([nhtsa.gov/recalls](https://www.nhtsa.gov/recalls)
+   lists them). A vehicle NHTSA does not know has no campaign: the status
+   then asks to check the spelling.
+4. **VINs** (optional): up to 3 VINs (17 characters), separated by commas,
+   instead of typing the vehicles. Five vehicles in all.
+5. **Check interval**: 3, 6 (default), 12 or 24 hours.
+6. **Language of the texts**: English or French: the names of the features
+   at their creation and the texts sent to the scenes. The recalls themselves
+   are published in English by the agencies.
 
-The **Prefer the local connection** toggle drives the demo plug: it reports
-the channel it actually uses as a badge (local or cloud), with an orange dot
-when it runs degraded (local refused, cloud fallback).
+Save, then create the device in the **Discover** tab.
 
-## Actions
+## Your VINs
 
-- **Test the weather provider** — performs a live request to Open-Meteo and
-  shows the current temperature and humidity under the button.
-- **Identify a device** — pick one of your devices in the list and it will
-  signal itself (the demo light "blinks" in the logs).
+A VIN is a field of type secret: kept by Gladys in its database, never shown
+again, sent only to NHTSA (vPIC, `vpic.nhtsa.dot.gov`) to learn the make,
+model and model year. The integration never writes it in its logs (debug
+included), its status, its memory (`/data`), the scene events, the widget or
+the actions: they say "VIN 2" and the make, model and year. `/data` keeps the
+campaigns under the make, model and year, as for a typed vehicle.
 
-## Scenes
+A VIN is decoded when it is saved, at each start, and again once a day. A
+start less than 10 minutes after a decoding (a container restarting in a
+loop) does not ask vPIC again: it takes the make, model and year decoded
+then, kept by position in `/data` (never the VIN), until the 10 minutes are
+over. A VIN changed while the integration was stopped is thus followed at
+most 10 minutes late. The recalls are then those of the make, model and
+year, **not** of your very vehicle: whether yours was already repaired is
+only on NHTSA's site, with the VIN ([nhtsa.gov/recalls](https://www.nhtsa.gov/recalls)),
+which no public interface gives.
 
-The integration adds its own cards to the scene editor (Gladys 5.1 or
-later), under the **Integrations** category:
+## How it works
 
-- **Motion detected** (trigger) — starts the scene when a demo motion sensor
-  sees something move. Optionally pick the sensor and what moved (person,
-  animal); left empty, any detection matches. The following actions can
-  read what moved with `{{triggerEvent.data.target}}`.
-- **Identify a device** (action) — makes the chosen device signal itself.
-  It returns whether the device could signal itself, so the following
-  actions can depend on it.
+Each source is read once per interval, one request at a time, a second apart,
+with a User-Agent naming the integration:
 
-## Dashboard
+- CPSC: the recalls of the last 21 days (about 40 a month);
+- openFDA: the enforcement reports of the last 21 days, for each category
+  followed (1,000 at most per request; beyond, the status says some are
+  left out). openFDA answers "not modified" when nothing changed; without a
+  key, its quota is 1,000 requests a day per address, far above what the
+  integration asks;
+- NHTSA: the campaigns of each vehicle.
 
-Add the **Demo status** widget to a dashboard: it shows the live
-temperature of the weather station and the power of the office plug, the
-connection the plug currently uses (orange when degraded) and the observed
-location. Its **Identify the light** button makes the demo light signal
-itself.
+A recall is **new** when its number was absent from every answer of its
+source read before. The first answer of a source fires nothing (what is
+listed then is not news), nor does a widened selection. A new CPSC or FDA
+recall whose day is more than 14 days old is remembered without firing; a
+vehicle campaign fires whatever its day (it is new for your vehicle). A
+scene event Gladys refuses is sent again at the next reading of its source;
+at most 20 events leave per check, the rest at the next one, 200 at most
+waiting per source (beyond, the oldest are dropped and the status says it). An event is sent before `/data` records it: if the
+integration is killed in between, it is sent again after the restart.
 
-## Troubleshooting
+What was seen, the copy of the recent recalls and the time of the last
+reading of each source are kept in `/data`: a restart fires nothing again,
+keeps the time planned for the next reading, and publishes the copies kept
+if they are still fresh. A source added by the configuration is read at
+once; a source taken off and back keeps its time. Configurations saved one
+after the other are applied in order: the last one wins.
 
-The integration logs everything it does: check the integration logs from the
-Gladys UI (or `docker logs` on the host) with `LOG_LEVEL=debug` for the full
-detail.
+## Status and failures
+
+Each source is independent: one that fails or asks to wait never holds the
+readings of the others (the counters, though, wait for every source, see
+below). The status of the integration says:
+
+- a source cannot be read (network, HTTP error, answer in another format),
+  with its next try: 15 minutes later, then 30, doubled up to the interval; a
+  "429" or "5xx" answer pauses that agency for 1 minute to 6 hours (the
+  server's `Retry-After` when it gives one), kept across restarts;
+- a VIN cannot be decoded, or is not 17 valid characters (by its position);
+- a vehicle entry is not understood, or there are more than 5 vehicles;
+- a vehicle has no campaign known to NHTSA (check the spelling);
+- openFDA has not loaded new reports for 21 days (compared to the date the
+  server gives): the counters are then not published until it does;
+- nothing is followed;
+- `/data` cannot be read or written, or does not answer (the readings go on);
+- more than 200 new recalls of a source wait for Gladys (the oldest dropped).
+
+## Up to date or not
+
+The recalls are **up to date** when every followed source was read
+successfully less than two intervals and an hour ago, and openFDA is not
+stale. Otherwise:
+
+- the counters of the device are not published (they keep their last value):
+  never a count that leaves a source out, never 0 for what is unknown;
+- the scene action fails with the reason ("The recalls are not up to date:
+  CPSC (consumer products) last read on …", "Not read yet: FDA (food).",
+  "Nothing is followed"), so a scene never reads "no recall" from data that
+  is not current;
+- the configuration button gives that reason instead of the recalls;
+- the widget titles "Recalls not up to date" (or "Waiting for the sources",
+  "Nothing followed") and lists the recalls of the sources that are.
+
+When the last reading of a source failed but its recalls are still up to
+date, the scene action, the button and the widget give them with a warning
+first ("Warning: the last reading failed for CPSC (consumer products) (…;
+recalls of …).").
+
+## Limits
+
+- A complement, not an official alert system: always check the recall sheet.
+  Not affiliated with CPSC, the FDA, NHTSA nor any US agency.
+- openFDA: "Do not rely on openFDA to make decisions regarding medical care";
+  its reports come once a week, a few days late, and are not every recall of
+  the week (some appear later). FDA reports have no link of their own: the
+  link goes to the FDA recalls page.
+- The vehicle campaigns are those of a make, model and year, not of your
+  vehicle.
+
+## Data and licence
+
+CPSC recalls (saferproducts.gov), openFDA (api.fda.gov) and NHTSA
+(api.nhtsa.gov, vpic.nhtsa.dot.gov): public data of the US government, read
+without an account nor a key. See [open.fda.gov/license](https://open.fda.gov/license/).
