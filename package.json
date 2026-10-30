@@ -1,6 +1,6 @@
 {
   "name": "gladys-recalls-us",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Recalls in the United States (CPSC consumer products, openFDA food, drugs and medical devices, NHTSA vehicles by make, model and year or VIN) for Gladys Assistant: device, scene trigger, action and widget.",
   "type": "module",

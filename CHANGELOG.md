@@ -10,6 +10,8 @@ the notes of the version's GitHub Release.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-30
+
 ### Added
 
 - Recalls in the United States from CPSC (consumer products), openFDA (food,
@@ -23,3 +25,6 @@ the notes of the version's GitHub Release.
   that is not up to date is said, never counted as 0.
 - VINs kept by Gladys as a secret field, sent only to NHTSA vPIC, never in
   the logs, the status nor `/data`.
+
+[Unreleased]: https://github.com/LM1LC3N7/gladys-recalls-us/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/LM1LC3N7/gladys-recalls-us/releases/tag/v0.1.1
