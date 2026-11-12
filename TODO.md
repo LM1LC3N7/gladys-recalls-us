@@ -3,13 +3,13 @@
 ## Before announcing
 
 - [ ] Review (high).
-- [ ] Try on a real Gladys 5.1+: device creation, the widget, a scene on
+- [ ] Try on a real Gladys 5.3+: device creation, the widget, a scene on
       `new_recall` over a few days, the scene action, a VIN saved.
 - [ ] Turn on "Private vulnerability reporting" (SECURITY.md points there).
 - [ ] Add the `gladys-assistant-integration` topic to publish in the store
       (after the first release: the store validator needs the GHCR image).
-- [ ] Store: `keywords` (recall, CPSC, FDA, NHTSA, VIN) and `countries` (US)
-      once the core accepts them.
+- [ ] Store: `keywords` (recall, CPSC, FDA, NHTSA, VIN) once the core accepts
+      them. The countries are declared (`US`).
 
 ## To watch on the real services
 

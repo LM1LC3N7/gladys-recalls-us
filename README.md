@@ -11,7 +11,7 @@ widget. English and French texts.
 - User documentation: [English](docs/en.md), [français](docs/fr.md).
 - Tested against the real services on 30/10/2026 and on fake servers built
   from their answers; not yet over weeks of real use nor with a real Gladys.
-- Requires Gladys 5.1.0 or later. No account, no key. A VIN is sent only to
+- Requires Gladys 5.3.0 or later. No account, no key. A VIN is sent only to
   NHTSA (vPIC) and never written in the logs, the status or `/data`.
 
 ## Development
