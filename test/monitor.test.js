@@ -30,7 +30,7 @@ test('first start: each followed source read once, one request at a time, nothin
   assert.match(cpsc.url, /RecallDateStart=2026-10-09$/);
   assert.match(
     cpsc.headers['user-agent'],
-    /^gladys-recalls-us\/0\.1\.0 \(Gladys Assistant integration; \+https:\/\/github\.com\/LM1LC3N7\/gladys-recalls-us\)$/,
+    /^gladys-recalls-us\/\d+\.\d+\.\d+ \(Gladys Assistant integration; \+https:\/\/github\.com\/LM1LC3N7\/gladys-recalls-us\)$/,
   );
   const fda = world.server.requests.find((r) => r.source === 'fda');
   assert.match(decodeURIComponent(fda.url), /report_date:\[20261009\+TO\+20261031\]/);
